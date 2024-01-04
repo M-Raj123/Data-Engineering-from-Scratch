@@ -28,4 +28,20 @@ Drop column Item_Rating;
 
 -- Modify Existing Column (To change the data type of a column in a table)
  Alter table Item 
- Modify column Item_Rating char;
+ Modify column Item_Rating char; 
+
+-- two ways to display the column information
+show columns from Item; 
+describe Item;
+
+-- copy table and data
+CREATE TABLE duplicate_item_table LIKE item;  
+INSERT duplicate_item_table SELECT * FROM item;
+
+-- rename column old to new 
+Alter table Item 
+rename column Item_Rating to Item_Rate ;
+
+-- change column name and datatype
+Alter table Item 
+change column Item_Rating Item_Rate int;
