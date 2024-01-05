@@ -1,6 +1,6 @@
 -- create table if it not exist
 create table Item(
-	  Item_Id int ,
+    Item_Id int,
     Item_Name varchar(30),
     Item_Price int
 );
@@ -45,3 +45,13 @@ rename column Item_Rating to Item_Rate ;
 -- change column name and datatype
 Alter table Item 
 change column Item_Rating Item_Rate int;
+
+--  Constraint
+
+-- not null constraint ( By default, a column can hold NULL values )
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255) NOT NULL,
+    Age int
+);
