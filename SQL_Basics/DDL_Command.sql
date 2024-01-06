@@ -54,4 +54,18 @@ CREATE TABLE Persons (
     LastName varchar(255) NOT NULL,
     FirstName varchar(255) NOT NULL,
     Age int
-);
+); 
+
+-- check constraint 
+ALTER TABLE Item
+ADD CONSTRAINT nn_name
+CHECK (Item_Name IS NOT NULL);
+
+-- primary constraint 
+ALTER TABLE Item
+add Constraint pk_item_id Primary key (Item_Id); 
+
+-- display the contraints on the selected table 
+SELECT CONSTRAINT_NAME, CONSTRAINT_TYPE
+FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+WHERE TABLE_NAME = 'Item';
