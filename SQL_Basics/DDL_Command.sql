@@ -1,8 +1,28 @@
 -- create table if it not exist
-create table Item(
-    Item_Id int,
+create table Customers(
+    Customer_Id int,
+    Customer_Name varchar(50),
+    Customer_Phone char(10),
+    Customer_City varchar(50),
+    Customer_Pincode text,
+    constraint pk_cus_id primary key(Customer_Id)
+);
+
+create table Items(
+    Item_Id int ,
     Item_Name varchar(30),
-    Item_Price int
+    Item_Price int,
+    Constraint pk_item_id Primary key(Item_Id)
+);
+
+create table Orders(
+    Order_Id int,
+    Item_Id int,
+    Customer_Id int,
+    Total_Amt int,
+    constraint pk_order_id primary key(Order_Id),
+    constraint fk_item_id foreign key (Item_Id) References Items(Item_Id),
+    constraint fk_cus_id foreign key (Customer_Id) References Customers(Customer_Id)
 );
 
 -- show the newly created tables
@@ -61,9 +81,19 @@ ALTER TABLE Item
 ADD CONSTRAINT nn_name
 CHECK (Item_Name IS NOT NULL);
 
--- primary constraint 
+-- primary key constraint 
 ALTER TABLE Item
 add Constraint pk_item_id Primary key (Item_Id); 
+
+-- foreign key constraint 
+Alter table Orders
+add constraint fk_item_id foreign key (Item_Id) References Item(Item_Id),
+add constraint fk_cus_id foreign key (Customer_Id) References Customers(Customer_Id);
+
+-- drop constraints using constraint_name
+Alter table Orders
+drop constraint fk_item_id,
+drop constraint fk_cus_id;
 
 -- display the contraints on the selected table 
 SELECT CONSTRAINT_NAME, CONSTRAINT_TYPE
