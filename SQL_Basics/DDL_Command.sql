@@ -95,6 +95,18 @@ Alter table Orders
 drop constraint fk_item_id,
 drop constraint fk_cus_id;
 
+-- auto_increment  ( By default, the starting value for AUTO_INCREMENT is 1, and it will increment by 1 for each new record )
+alter table sampleIncTab auto_increment=100; 
+/*
+error faced while creating table without set key for column - auto_incr constraint
+Error Code: 1075. Incorrect table definition; there can be only one auto column and it must be defined as a key
+*/
+
+
+-- default constraint
+ALTER TABLE Persons
+ALTER City SET DEFAULT 'Sandnes';
+
 -- display the contraints on the selected table 
 SELECT CONSTRAINT_NAME, CONSTRAINT_TYPE
 FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
