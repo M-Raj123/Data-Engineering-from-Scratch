@@ -107,6 +107,13 @@ Error Code: 1075. Incorrect table definition; there can be only one auto column 
 ALTER TABLE Persons
 ALTER City SET DEFAULT 'Sandnes';
 
+-- create index ( Data retrieval is speed up by the usage of indexes )
+create index idx_item_id on orders(Item_Id);
+
+-- drop index 
+Alter table Orders
+drop index idx_item_id;
+
 -- display the contraints on the selected table 
 SELECT CONSTRAINT_NAME, CONSTRAINT_TYPE
 FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
