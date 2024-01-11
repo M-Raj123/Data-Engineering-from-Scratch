@@ -10,3 +10,12 @@ update Item set Item_Price=10 where Item_Id=3;
 
 -- delete row from the table
 delete from Item where Item_Id=3;
+
+-- Explain ( provides information about how MySQL executes statements )
+SELECT @@explain_format;    -- ( Default = Traditional )
+SET @@explain_format=<Any>; -- ( JSON, DEFAULT, TREE )
+
+explain select * from Item where Item_Id=2 ;
+Explain format=tree select * from Item where Item_Price=20 ;
+
+-- FIELDS ( id, select_type, table, partitions, type, possible_keys, key, key_len, ref, rows, filtered, Extra )
