@@ -13,6 +13,14 @@ select * from Item where Item_Id = 2 ;
 -- if stock is null the result can be also return null value
 select Item_Id , Item_Name, (stock*Item_Price) as Amount from Item;
 
--- IFNULL and COALESCE - returns 0 if the value is NULL:
+-- IFNULL and COALESCE - returns 0 if the value is NULL
 select Item_Id , Item_Name, (IFNULL(stock,0) * Item_Price) as Amount from Item;
 select Item_Id , Item_Name, (COALESCE(stock,0) * Item_Price) as Amount from Item; 
+
+-- Case Statement -
+select Item_Id , Item_Name, Item_Price , Stock, 
+case
+	when Stock is Null then "NO"
+	else "YES"
+    end as "IsStockPresent" 
+from Item;
