@@ -24,3 +24,6 @@ case
 	else "YES"
     end as "IsStockPresent" 
 from Item;
+
+-- Order by used to sort the results in ascending or descending 
+Select * from Item order by Item_Name asc | desc;
