@@ -17,7 +17,7 @@ select Item_Id , Item_Name, (stock*Item_Price) as Amount from Item;
 select Item_Id , Item_Name, (IFNULL(stock,0) * Item_Price) as Amount from Item;
 select Item_Id , Item_Name, (COALESCE(stock,0) * Item_Price) as Amount from Item; 
 
--- Case Statement -
+-- Case Statement 
 select Item_Id , Item_Name, Item_Price , Stock, 
 case
 	when Stock is Null then "NO"
@@ -27,3 +27,7 @@ from Item;
 
 -- Order by used to sort the results in ascending or descending 
 Select * from Item order by Item_Name asc | desc;
+
+-- MiN() and MAX()
+SELECT MIN(Item_Price) AS MaxItem FROM Item;
+SELECT MAX(Item_Price) AS MinItem FROM Item;
