@@ -31,3 +31,8 @@ Select * from Item order by Item_Name asc | desc;
 -- MiN() and MAX()
 SELECT MIN(Item_Price) AS MaxItem FROM Item;
 SELECT MAX(Item_Price) AS MinItem FROM Item;
+
+-- AND , OR , NOT OPERATORS
+select * from Item where not stock=10;
+select * from Item where Item_Price=10 and stock=10;
+select * from Item where Item_Price=10 or stock=10;
