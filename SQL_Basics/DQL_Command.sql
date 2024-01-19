@@ -36,3 +36,7 @@ SELECT MAX(Item_Price) AS MinItem FROM Item;
 select * from Item where not stock=10;
 select * from Item where Item_Price=10 and stock=10;
 select * from Item where Item_Price=10 or stock=10;
+
+-- NULL values
+select * from Item where stock IS NULL;
+select * from Item where stock IS NOT NULL;
