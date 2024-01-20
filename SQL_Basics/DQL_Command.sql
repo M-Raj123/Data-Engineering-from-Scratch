@@ -40,3 +40,8 @@ select * from Item where Item_Price=10 or stock=10;
 -- NULL values
 select * from Item where stock IS NULL;
 select * from Item where stock IS NOT NULL;
+
+-- LIKE 
+select * from Item where Item_Name like "____";
+select * from Item where Item_Name like "_o%";
+select * from Item where Item_Name like "H%";
