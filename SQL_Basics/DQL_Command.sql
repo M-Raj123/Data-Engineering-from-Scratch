@@ -54,3 +54,13 @@ select count(Item_Id) as TOTAL from Item;
 -- BETWEEN include the values  (low to high)
 select * from Item where Item_Price between 20 and 50; 
 select * from Item where Item_Price not between 20 and 50;
+
+-- IN operator
+select * from Employees where Designation in ("Teacher","Student");
+select * from Student where City in ("chennai","Trichy","Madurai");
+
+-- Alias 
+select Item_Name as Product_Name from Item;
+select Item_Id as Id, Item_Name as "Name" from Item;
+select I.Item_Name from Item as I;
+select Item_Id , concat_ws(",",Item_Name,Item_Price,stock) as Details from Item; 
