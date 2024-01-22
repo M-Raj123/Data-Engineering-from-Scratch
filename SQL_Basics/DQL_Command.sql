@@ -46,7 +46,11 @@ select * from Item where Item_Name like "____";
 select * from Item where Item_Name like "_o%";
 select * from Item where Item_Name like "H%";
 
--- SUM, (AVG and COUNT can omit the NULL value;)
+-- SUM, (AVG and COUNT can omit the NULL value)
 Select sum(stock) as SUMOFSTOCKS from Item;
 select avg(Stock) as AVGOFSTOCKS from Item; 
 select count(Item_Id) as TOTAL from Item;  
+
+-- BETWEEN include the values  (low to high)
+select * from Item where Item_Price between 20 and 50; 
+select * from Item where Item_Price not between 20 and 50;
