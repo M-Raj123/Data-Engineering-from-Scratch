@@ -118,3 +118,38 @@ drop index idx_item_id;
 SELECT CONSTRAINT_NAME, CONSTRAINT_TYPE
 FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
 WHERE TABLE_NAME = 'Item';
+
+
+create table Students(
+	Roll_No int,
+    Stud_Name varchar(40),
+    Stud_Address varchar(50),
+    Stud_Phone varchar(10),
+    Stud_Age int
+);
+
+create table Courses(
+	Course_Id int,
+    Roll_No int
+);
+
+select * from Students;
+insert into Students values(1,"HARSH","DELHI","xxxxxxxxxx",18);
+insert into Students values(2,"PRATIK","BIHAR","xxxxxxxxxx",19);
+insert into Students values(3,"RIYANKA","SILIGURI","xxxxxxxxxx",20);
+insert into Students values(4,"DEEP","RAMNAGAR","xxxxxxxxxx",18);
+insert into Students values(5,"SAPTHARI","KOLKATA","xxxxxxxxxx",19);
+insert into Students values(6,"DHANRAJ","BARABAJAR","xxxxxxxxxx",20);
+insert into Students values(7,"ROHIT","BALURGHAT","xxxxxxxxxx",18);
+insert into Students values(8,"NIRAJ","ALIPUR","xxxxxxxxxx",19);
+
+
+select * from Courses;
+insert into Courses values(1,1);
+insert into Courses values(2,2);
+insert into Courses values(2,3);
+insert into Courses values(3,4);
+insert into Courses values(1,5);
+insert into Courses values(4,9);
+insert into Courses values(5,10);
+insert into Courses values(4,11);
