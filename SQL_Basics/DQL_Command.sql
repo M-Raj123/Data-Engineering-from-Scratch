@@ -64,3 +64,20 @@ select Item_Name as Product_Name from Item;
 select Item_Id as Id, Item_Name as "Name" from Item;
 select I.Item_Name from Item as I;
 select Item_Id , concat_ws(",",Item_Name,Item_Price,stock) as Details from Item; 
+
+-- INNER JOIN
+SELECT Courses.COURSE_ID, Students.Stud_NAME, Students.Stud_AGE FROM Students
+INNER JOIN Courses
+ON Students.ROLL_NO = Courses.ROLL_NO;
+
+-- LEFT JOIN
+SELECT Students.Stud_Name,  Courses.Course_Id 
+FROM Students
+LEFT JOIN Courses 
+ON Courses.Roll_No = Students.Roll_No; 
+
+-- RIGHT JOIN
+SELECT Students.Stud_Name, Courses.Course_Id 
+FROM Students
+RIGHT JOIN Courses 
+ON Courses.Roll_No = Students.Roll_No;  
