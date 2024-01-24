@@ -81,3 +81,9 @@ SELECT Students.Stud_Name, Courses.Course_Id
 FROM Students
 RIGHT JOIN Courses 
 ON Courses.Roll_No = Students.Roll_No;  
+
+-- Self Join
+SELECT a.ID, b.NAME as EARNS_HIGHER, a.NAME 
+as EARNS_LESS, a.SALARY as LOWER_SALARY
+FROM CUSTOMERS a, CUSTOMERS b
+WHERE a.SALARY < b.SALARY;
