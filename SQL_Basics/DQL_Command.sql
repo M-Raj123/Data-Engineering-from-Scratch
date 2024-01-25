@@ -87,3 +87,10 @@ SELECT a.ID, b.NAME as EARNS_HIGHER, a.NAME
 as EARNS_LESS, a.SALARY as LOWER_SALARY
 FROM CUSTOMERS a, CUSTOMERS b
 WHERE a.SALARY < b.SALARY;
+
+
+-- union it allows duplicate
+SELECT City FROM Customers
+UNION ALL
+SELECT City FROM Suppliers
+ORDER BY City;
