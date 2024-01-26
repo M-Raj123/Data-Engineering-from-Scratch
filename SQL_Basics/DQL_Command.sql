@@ -89,7 +89,13 @@ FROM CUSTOMERS a, CUSTOMERS b
 WHERE a.SALARY < b.SALARY;
 
 
--- union it allows duplicate
+-- union it doesn't allows duplicate
+SELECT City FROM Customers
+UNION ALL
+SELECT City FROM Suppliers
+ORDER BY City;
+
+-- union all  it allows duplicate
 SELECT City FROM Customers
 UNION ALL
 SELECT City FROM Suppliers
