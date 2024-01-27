@@ -91,7 +91,7 @@ WHERE a.SALARY < b.SALARY;
 
 -- union it doesn't allows duplicate
 SELECT City FROM Customers
-UNION ALL
+UNION
 SELECT City FROM Suppliers
 ORDER BY City;
 
@@ -100,3 +100,10 @@ SELECT City FROM Customers
 UNION ALL
 SELECT City FROM Suppliers
 ORDER BY City;
+
+-- Group by
+SELECT COUNT(CustomerID), Country
+FROM Customers group by Country;  
+
+SELECT COUNT(CustomerID), Country 
+FROM Customers where Country="Brazil"; -- it returns only brazil country count 
