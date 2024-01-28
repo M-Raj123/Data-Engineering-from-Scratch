@@ -107,3 +107,6 @@ FROM Customers group by Country;
 
 SELECT COUNT(CustomerID), Country 
 FROM Customers where Country="Brazil"; -- it returns only brazil country count 
+
+-- Having clause ( WHERE cannot be used for aggregate functions )
+SELECT COUNT(Stud_Age), Stud_Age FROM Students GROUP BY Stud_Age HAVING COUNT(Stud_Age) > 2 ORDER BY Stud_Age asc;
