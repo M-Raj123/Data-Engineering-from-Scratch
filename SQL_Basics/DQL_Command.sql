@@ -110,3 +110,13 @@ FROM Customers where Country="Brazil"; -- it returns only brazil country count
 
 -- Having clause ( WHERE cannot be used for aggregate functions )
 SELECT COUNT(Stud_Age), Stud_Age FROM Students GROUP BY Stud_Age HAVING COUNT(Stud_Age) > 2 ORDER BY Stud_Age asc;
+
+-- WINDOW FUNCTION (used to do calculation across the set of rows)
+SELECT E.*,
+  MAX(EMP_SALARY) OVER() AS MAXSALARY
+FROM EMPLOYEES E;
+
+-- by using partition clause
+SELECT E.*,
+  MAX(EMP_SALARY) OVER(PARTITION by Emp_Dept) AS MAXSALARY
+FROM EMPLOYEES E;
