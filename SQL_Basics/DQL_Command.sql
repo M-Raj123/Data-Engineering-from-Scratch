@@ -120,3 +120,8 @@ FROM EMPLOYEES E;
 SELECT E.*,
   MAX(EMP_SALARY) OVER(PARTITION by Emp_Dept) AS MAXSALARY
 FROM EMPLOYEES E;
+
+-- row_number ( it assigns a unique sequential number to each row within a specific partition )
+SELECT E.*, 
+   row_number() over(partition by emp_dept order by emp_id asc ) as RowNum
+from EMPLOYEES E;
