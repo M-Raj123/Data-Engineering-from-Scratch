@@ -125,3 +125,5 @@ FROM EMPLOYEES E;
 SELECT E.*, 
    row_number() over(partition by emp_dept order by emp_id asc ) as RowNum
 from EMPLOYEES E;
+
+-- Rank  
