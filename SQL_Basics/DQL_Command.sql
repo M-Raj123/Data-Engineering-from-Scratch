@@ -126,4 +126,10 @@ SELECT E.*,
    row_number() over(partition by emp_dept order by emp_id asc ) as RowNum
 from EMPLOYEES E;
 
--- Rank  
+-- Rank  and Dense Rank
+Select * from (
+    SELECT E.*, 
+    rank() over(partition by emp_dept order by Emp_Salary ) as rnk,
+    dense_rank() over(partition by emp_dept order by Emp_Salary ) as dense_rnk
+    from EMPLOYEES E ) X
+where X.rnk  <= 3;
