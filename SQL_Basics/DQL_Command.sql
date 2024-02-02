@@ -133,3 +133,8 @@ Select * from (
     dense_rank() over(partition by emp_dept order by Emp_Salary ) as dense_rnk
     from EMPLOYEES E ) X
 where X.rnk  <= 3;
+
+-- Lag (return previous row data)
+select E.*,
+lag(emp_salary) over( partition by emp_dept order by emp_id) as prev_record
+from Employees E ;
