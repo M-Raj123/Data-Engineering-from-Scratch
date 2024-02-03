@@ -134,7 +134,19 @@ Select * from (
     from EMPLOYEES E ) X
 where X.rnk  <= 3;
 
--- Lag (return previous row data)
+
+-- LAG and LEAD ( used to get preceding and succeeding value of any row within its partition )
+-- Lag 
 select E.*,
 lag(emp_salary) over( partition by emp_dept order by emp_id) as prev_record
+from Employees E ;
+
+-- additional parameter in lag and lead
+select E.*,
+lag(emp_salary,2,0) over( partition by emp_dept order by emp_id asc) as prev_record
+from Employees E ;
+
+-- lead 
+select E.*,
+lead(emp_salary,2,0) over( partition by emp_dept order by emp_id asc) as nxt_record
 from Employees E ;
