@@ -150,3 +150,16 @@ from Employees E ;
 select E.*,
 lead(emp_salary,2,0) over( partition by emp_dept order by emp_id asc) as nxt_record
 from Employees E ;
+
+-- WITH clause
+
+''' 
+for example written in sub-query
+select * from employees e where emp_salary > (select avg(emp_salary) as Average_Salary from employees) ;
+using with clause - easy to understand, reuse the query, store in temporary table
+avg_salary scope was untill the full query execution
+'''
+
+with Average_Salary(avg_salary) as 
+       ( select avg(emp_salary) from employees ) 
+select * from employees e, Average_Salary av where e.emp_salary > av.avg_salary;
