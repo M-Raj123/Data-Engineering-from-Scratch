@@ -163,3 +163,15 @@ avg_salary scope was untill the full query execution
 with Average_Salary(avg_salary) as 
        ( select avg(emp_salary) from employees ) 
 select * from employees e, Average_Salary av where e.emp_salary > av.avg_salary;
+
+
+-- MYSQL Basic Methods 
+SELECT DISTINCT emp_dept, length(Emp_dept) FROM Employees; -- return unique
+SELECT CONCAT(emp_Id, ' ', Emp_salary) FROM Employees;     -- concatenate the string 
+SELECT REPLACE(Emp_dept, 'I', 'i') FROM Employees;         -- replace the string 
+Select INSTR(Emp_name, 'a') from Employees ;               -- return index
+Select lower(Emp_Name)  from Employees ;		   -- return as lowercase
+Select upper(Emp_Name)  from Employees ;	 	   -- return as uppercase
+Select * from Employees where MOD(Emp_Id,2) <> 0;          -- modulus function
+Select now();						   -- return '2024-02-05 22:44:48'
+select curdate();                                          -- return "2024-02-05"
