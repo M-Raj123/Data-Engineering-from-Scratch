@@ -45,7 +45,7 @@ cte_final as
 	CASE WHEN FLAG = 1 THEN end_hut_name ELSE start_hut_name END as end_hut_name
   -- swap the huts based on flag
 	FROM cte_trails2 as t3)
-SELECT c1.start_hut_name, c1.end_hut_name , c2.end_hut_name
+SELECT c1.start_hut_name as first_hut , c1.end_hut_name as second_hut , c2.end_hut_name as third_hut
 FROM cte_final c1 
 JOIN cte_final c2 
 -- using self join to get the 3rd hut
